@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <PublishDir>$(MSBuildProjectDirectory)\publish\</PublishDir>
+    <PublishDir>$(MSBuildProjectDirectory)\publish\windows\</PublishDir>
   </PropertyGroup>
 
   <Target Name="RemoveTransientBuildFoldersAfterPublish" AfterTargets="Publish">

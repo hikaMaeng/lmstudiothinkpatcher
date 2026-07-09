@@ -12,13 +12,24 @@ non-thinking prompt-template overrides for Codex-style Responses API calls.
 - Supports patching every model or only unpatched models.
 - Uses `%USERPROFILE%\.lmstudio\hub\models\<publisher>\<patched-name>\model.yaml` and `ndx-model-patch.json` as the patch source of truth.
 
-## Build
+## Build Windows
 
-```bash
-dotnet publish -c Release -r win-x64 --self-contained false
+```powershell
+.\build-windows.ps1
 ```
 
-The published app is written to `publish/`. Re-run the same command after
+The Windows app is published to `publish/windows/`. Re-run the same script after
 updates; it reuses that folder instead of creating versioned publish folders.
-Transient `bin/` and `obj/` build folders are removed automatically after
-publish completes.
+Transient `bin/` and `obj/` build folders are removed automatically.
+
+## Build macOS
+
+Run this on macOS with Xcode command line tools installed:
+
+```bash
+./build-macos.sh
+```
+
+The macOS SwiftUI app is published to
+`publish/macos/LM Studio Think Patcher.app`. The temporary SwiftPM `.build/`
+folder is removed automatically after the app bundle is assembled.
