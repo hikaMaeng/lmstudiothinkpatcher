@@ -22,6 +22,8 @@ Instead of hand-editing every model folder every time LM Studio or a model is
 updated, you can scan once, patch all compatible models, and keep the generated
 aliases under `~/.lmstudio/hub/models`.
 
+![LM Studio Think Patcher macOS app showing patched local models](docs/images/lm-studio-think-patcher-macos.png)
+
 ## Why This Exists
 
 LM Studio recognizes models from two related locations:

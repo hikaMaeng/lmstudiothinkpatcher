@@ -51,6 +51,9 @@ struct ContentView: View {
         } message: {
             Text(viewModel.alertMessage)
         }
+        .task {
+            viewModel.analyzeSavedModelRoot()
+        }
     }
 
     private var toolbar: some View {
@@ -163,6 +166,14 @@ final class PatcherViewModel: ObservableObject {
             selectedIDs.removeAll()
             updateSummary()
         }
+    }
+
+    func analyzeSavedModelRoot() {
+        guard rows.isEmpty, !modelRoot.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return
+        }
+
+        analyze()
     }
 
     func patchAll() {
