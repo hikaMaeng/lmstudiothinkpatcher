@@ -7,11 +7,17 @@ PUBLISH="$ROOT/publish/macos"
 APP_NAME="LM Studio Think Patcher"
 BUNDLE="$PUBLISH/$APP_NAME.app"
 BINARY="$PROJECT/.build/release/LmStudioThinkPatcherMac"
+BUILD_CACHE="$ROOT/.build-cache"
 
 trap 'rm -rf "$PROJECT/.build"' EXIT
 
 mkdir -p "$PUBLISH"
-swift build --package-path "$PROJECT" -c release
+mkdir -p "$BUILD_CACHE/home" "$BUILD_CACHE/clang"
+
+export HOME="$BUILD_CACHE/home"
+export CLANG_MODULE_CACHE_PATH="$BUILD_CACHE/clang"
+
+swift build --disable-sandbox --package-path "$PROJECT" -c release
 
 rm -rf "$BUNDLE"
 mkdir -p "$BUNDLE/Contents/MacOS" "$BUNDLE/Contents/Resources"

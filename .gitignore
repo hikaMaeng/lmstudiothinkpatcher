@@ -4,3 +4,4 @@ obj/
 *.user
 .DS_Store
 macos/**/.build/
+.build-cache/
